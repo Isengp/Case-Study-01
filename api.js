@@ -11,8 +11,15 @@ function ajax(){
                 output += "<tr> <td>" + reslist[i].userId + "</td><td>" +
                     reslist[i].id + "</td><td>" +
                     reslist[i].title + "</td><td>" +
-                    reslist[i].completed + "</td><td> <input type = 'checkbox' class ='checkBox' onchange='check()'></td></tr>";
-            }
+                    reslist[i].completed + "</td><td>";
+
+                if(reslist[i].completed == true) {
+                  output += "<input type = 'checkbox' checked disabled>"+"</td> </tr>";
+                }
+                else {
+                  output += "<input type = 'checkbox' class ='checkBox' onchange = 'check()'>"+"</td> </tr>";
+                }
+              }
 
             output += "</table>";
             document.getElementById("demo").innerHTML = output;
